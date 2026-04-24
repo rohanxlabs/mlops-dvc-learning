@@ -1,170 +1,206 @@
-📦 DataOps Engine
+📦 MLOps with DVC (Data Version Control)
 
-⚙️ Data Version Control System with DVC (Reproducible ML Pipelines)
+⚡ Versioning Data, Models & Pipelines for Reproducible ML
 
 <p align="center">
-  <img src="https://img.shields.io/github/stars/rohanxlabs/MLOPS-DVC-Dataversion?style=plastic" />
-  <img src="https://img.shields.io/github/forks/rohanxlabs/MLOPS-DVC-Dataversion?style=plastic" />
-  <img src="https://img.shields.io/github/issues/rohanxlabs/MLOPS-DVC-Dataversion?style=plastic" />
-  <img src="https://img.shields.io/badge/Data-Versioning-DVC-blueviolet?style=plastic" />
+  <img src="https://readme-typing-svg.herokuapp.com?size=22&duration=3000&color=00C853&center=true&vCenter=true&width=800&lines=Data+Version+Control+(DVC);Reproducible+Machine+Learning;Git+for+Data+%26+Models" />
+</p><p align="center">
+  <img src="https://img.shields.io/badge/MLOps-DVC-blue">
+  <img src="https://img.shields.io/badge/Versioning-Data+%26+Models-orange">
+  <img src="https://img.shields.io/badge/Pipelines-Reproducible-green">
+  <img src="https://img.shields.io/badge/Status-Learning+Project-success">
 </p>---
 
-🧠 The Problem This Solves
+🎯 Problem Statement
 
-Machine Learning projects fail not because of models —
-but because of data inconsistency.
+In Machine Learning projects, managing:
 
-- ❌ Dataset overwritten
-- ❌ No experiment reproducibility
-- ❌ No traceability
+- Large datasets
+- Model versions
+- Experiment pipelines
 
-This project solves it using DVC (Data Version Control).
+is extremely challenging.
 
-👉 DVC acts like “Git for data”, tracking datasets, models, and pipelines alongside code
+Traditional tools like Git cannot efficiently handle large data files.
 
----
-
-🖼️ System Architecture
+👉 This project explores DVC (Data Version Control) to solve this problem.
 
 ---
 
-⚙️ How DVC Works (Core Idea)
+🧠 What is DVC?
 
-Instead of storing large files in Git:
+DVC is an open-source version control system for data, models, and ML pipelines built on top of Git
 
-- 📄 Git → stores small ".dvc" metafiles
-- ☁️ Remote Storage → stores actual data
+It enables:
 
-👉 DVC replaces large files with lightweight pointers, enabling version control without bloating repositories
+- Versioning of datasets and models
+- Reproducible ML experiments
+- Pipeline automation
+
+👉 Think of it as Git, but for Machine Learning assets
+
+---
+
+💡 Why Use DVC?
+
+DVC helps solve key MLOps challenges:
+
+✔ Track large datasets without storing them in Git
+✔ Reproduce experiments with exact data versions
+✔ Manage ML pipelines as code
+✔ Enable collaboration across teams
+
+It works by storing metadata in Git and actual data in remote storage
+
+---
+
+🏗️ System Architecture
+
+Code (Git)
+    ↓
+DVC Metadata (.dvc files)
+    ↓
+Remote Storage (Data / Models)
+    ↓
+Pipeline (dvc.yaml)
+    ↓
+Reproducible Execution
+
+---
+
+⚙️ Core Components
+
+📦 Data Versioning
+
+- Track dataset changes
+- Store large files outside Git
+
+🤖 Model Versioning
+
+- Save different model versions
+- Reproduce results anytime
+
+🔄 Pipeline Management
+
+- Define stages in "dvc.yaml"
+- Automate ML workflows
+
+☁️ Remote Storage
+
+- Store data in cloud/local storage
+- Sync using DVC commands
 
 ---
 
 🔄 Workflow
 
-graph LR
-A[Raw Data] --> B[dvc add]
-B --> C[.dvc File]
-C --> D[Git Commit]
-B --> E[Remote Storage]
-D --> F[Version History]
-E --> F
+1. Initialize DVC project
+2. Add dataset using dvc add
+3. Track metadata in Git
+4. Define pipeline stages (dvc.yaml)
+5. Run pipeline
+6. Reproduce results anytime
 
 ---
 
-🧪 Example Commands
+🛠️ Tech Stack
 
-dvc init
-dvc add data.csv
-git add data.csv.dvc .gitignore
-git commit -m "Track dataset"
-dvc push
-
----
-
-📁 Project Structure
-
-DVC-DataOps/
-│── data/                # Raw & processed data
-│── models/              # Trained models
-│── dvc.yaml             # Pipeline definition
-│── dvc.lock             # Pipeline reproducibility
-│── .dvc/                # DVC metadata
-│── requirements.txt
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=python,git,docker" />
+</p>- Python
+- DVC (Data Version Control)
+- Git
+- Cloud Storage (optional)
 
 ---
 
-🔬 Key Features
+📂 Project Structure
 
-🔹 Data Versioning
-
-- Track dataset changes over time
-- Revert to previous versions
-
-🔹 Pipeline Reproducibility
-
-- Define ML pipelines in "dvc.yaml"
-- Re-run exact workflows anytime
-
-🔹 Remote Storage Integration
-
-- AWS S3 / GDrive / Azure support
-- Scalable data storage
-
-🔹 Experiment Management
-
-- Compare outputs across runs
+mlops-dvc-learning/
+│
+├── data/              → Datasets (tracked via DVC)
+├── models/            → Model artifacts
+├── dvc.yaml           → Pipeline definition
+├── params.yaml        → Parameters
+├── .dvc/              → DVC configuration
+├── src/               → ML code
+└── requirements.txt
 
 ---
 
-💡 Why This Matters
+📊 Key Concepts Demonstrated
 
-Without DVC:
-❌ Cannot reproduce results
-❌ Data drift goes unnoticed
-❌ Debugging becomes impossible
-
-With DVC:
-✅ Full data lineage
-✅ Reproducible pipelines
-✅ Production-ready workflows
-
-👉 Data versioning ensures traceability and reproducibility, which are critical for reliable ML systems
+Concept| Explanation
+Data Versioning| Track dataset changes
+Model Versioning| Manage trained models
+Pipeline Automation| Define reproducible workflows
+Experiment Reproducibility| Re-run exact experiments
+Data-Lineage| Track dependencies
 
 ---
 
-🧠 Real-World Impact
+📈 Why This Matters in Industry
 
-Teams use DVC for:
+In real-world ML systems:
 
-- Fraud detection systems
-- Recommendation engines
-- ML pipelines in production
+- Data changes frequently
+- Models evolve continuously
+- Teams collaborate on experiments
 
-👉 It enables collaboration and consistent workflows across ML teams
+DVC provides a single source of truth for data, code, and models, enabling reproducibility and collaboration
 
 ---
 
-🚀 Run Locally
+⚠️ Limitations
 
-git clone https://github.com/rohanxlabs/MLOPS-DVC-Dataversion.git
-cd MLOPS-DVC-Dataversion
+- CLI-based (no native GUI)
+- Requires external storage setup
+- Not a full orchestration tool
+
+---
+
+🚀 Future Improvements
+
+- Integrate with CI/CD pipelines
+- Combine with MLflow (experiment tracking)
+- Deploy pipeline in cloud
+- Add automation workflows
+
+---
+
+▶️ Run Locally
+
+git clone https://github.com/rohanxlabs/mlops-dvc-learning
+cd mlops-dvc-learning
 pip install -r requirements.txt
-
-dvc pull
+dvc init
 dvc repro
 
 ---
 
-🔮 Future Enhancements
+🧑‍💻 Author
 
-- CI/CD integration (GitHub Actions + DVC)
-- Experiment tracking (MLflow integration)
-- Data validation pipelines
-- Model registry
+Rohan
+GitHub: https://github.com/rohanxlabs
 
 ---
 
-💼 Skill Signal
+⭐ Why This Project Stands Out
 
-This project proves:
+Most ML projects ignore data versioning.
 
-✔ MLOps maturity
-✔ Data versioning expertise
-✔ Reproducible ML systems
-✔ Industry-standard tooling
+This project demonstrates:
 
----
-
-👨‍💻 Author
-
-Rohan (rohanxlabs)
-MLOps Engineer | DataOps
+✔ Strong MLOps fundamentals
+✔ Reproducible ML workflows
+✔ Industry-level engineering practices
 
 ---
 
-⚡ Philosophy
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:00C853,100:00E676&height=120&section=footer"/>
+</p>---
 
-«Code can be versioned easily.
-Data should be too.»
-
----
+<p align="center">
+  <b>“In MLOps, controlling data is more important than controlling code.”</b>
+</p>---
